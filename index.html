@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Todo Planner</title>
+  <meta name="description" content="Todo App ringan yang berjalan langsung di GitHub Pages." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="card">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Produktivitas sederhana</p>
+          <h1>Todo Planner</h1>
+          <p class="subtitle">Catat tugas, tandai selesai, dan simpan otomatis di browser.</p>
+        </div>
+        <button id="themeToggle" class="icon-button" type="button" aria-label="Ganti tema">☾</button>
+      </header>
+
+      <form id="todoForm" class="todo-form">
+        <input id="todoInput" type="text" placeholder="Contoh: Cek backup server" maxlength="120" autocomplete="off" required />
+        <button type="submit">Tambah</button>
+      </form>
+
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="Filter tugas">
+          <button class="filter active" data-filter="all" type="button">Semua</button>
+          <button class="filter" data-filter="active" type="button">Aktif</button>
+          <button class="filter" data-filter="completed" type="button">Selesai</button>
+        </div>
+        <button id="clearCompleted" class="ghost-button" type="button">Hapus yang selesai</button>
+      </div>
+
+      <ul id="todoList" class="todo-list" aria-live="polite"></ul>
+
+      <footer class="status-bar">
+        <span id="todoCount">0 tugas aktif</span>
+        <span>Data tersimpan lokal</span>
+      </footer>
+    </section>
+  </main>
+
+  <template id="todoTemplate">
+    <li class="todo-item">
+      <label class="todo-main">
+        <input class="todo-check" type="checkbox" />
+        <span class="custom-check" aria-hidden="true">✓</span>
+        <span class="todo-text"></span>
+      </label>
+      <button class="delete-button" type="button" aria-label="Hapus tugas">×</button>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
